@@ -50,7 +50,7 @@ class XiaoQuBaseSpider(BaseSpider):
         chinese_district = get_chinese_district(district)
         chinese_area = chinese_area_dict.get(area, "")
         xiaoqu_list = list()
-        page = 'http://{0}.{1}.com/xiaoqu/{2}/'.format(city, SPIDER_NAME, area)
+        page = 'https://{0}.{1}.com/xiaoqu/{2}/'.format(city, SPIDER_NAME, area)
         print(page)
         logger.info(page)
 
@@ -71,7 +71,7 @@ class XiaoQuBaseSpider(BaseSpider):
         # 从第一页开始,一直遍历到最后一页
         for i in range(1, total_page + 1):
             headers = create_headers()
-            page = 'http://{0}.{1}.com/xiaoqu/{2}/pg{3}'.format(city, SPIDER_NAME, area, i)
+            page = 'https://{0}.{1}.com/xiaoqu/{2}/pg{3}'.format(city, SPIDER_NAME, area, i)
             print(page)  # 打印版块页面地址
             BaseSpider.random_delay()
             response = requests.get(page, timeout=10, headers=headers)

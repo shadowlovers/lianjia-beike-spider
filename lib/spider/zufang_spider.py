@@ -55,7 +55,7 @@ class ZuFangBaseSpider(BaseSpider):
         chinese_district = get_chinese_district(district_name)
         chinese_area = chinese_area_dict.get(area_name, "")
         zufang_list = list()
-        page = 'http://{0}.{1}.com/zufang/{2}/'.format(city_name, SPIDER_NAME, area_name)
+        page = 'https://{0}.{1}.com/zufang/{2}/'.format(city_name, SPIDER_NAME, area_name)
         print(page)
 
         headers = create_headers()
@@ -81,7 +81,7 @@ class ZuFangBaseSpider(BaseSpider):
         # 从第一页开始,一直遍历到最后一页
         headers = create_headers()
         for num in range(1, total_page + 1):
-            page = 'http://{0}.{1}.com/zufang/{2}/pg{3}'.format(city_name, SPIDER_NAME, area_name, num)
+            page = 'https://{0}.{1}.com/zufang/{2}/pg{3}'.format(city_name, SPIDER_NAME, area_name, num)
             print(page)
             BaseSpider.random_delay()
             response = requests.get(page, timeout=10, headers=headers)

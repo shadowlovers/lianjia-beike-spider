@@ -45,7 +45,7 @@ class LouPanBaseSpider(BaseSpider):
         """
         total_page = 1
         loupan_list = list()
-        page = 'http://{0}.fang.{1}.com/loupan/'.format(city_name, SPIDER_NAME)
+        page = 'https://{0}.fang.{1}.com/loupan/'.format(city_name, SPIDER_NAME)
         print(page)
         headers = create_headers()
         response = requests.get(page, timeout=10, headers=headers)
@@ -65,7 +65,7 @@ class LouPanBaseSpider(BaseSpider):
         # 从第一页开始,一直遍历到最后一页
         headers = create_headers()
         for i in range(1, total_page + 1):
-            page = 'http://{0}.fang.{1}.com/loupan/pg{2}'.format(city_name, SPIDER_NAME, i)
+            page = 'https://{0}.fang.{1}.com/loupan/pg{2}'.format(city_name, SPIDER_NAME, i)
             print(page)
             BaseSpider.random_delay()
             response = requests.get(page, timeout=10, headers=headers)
